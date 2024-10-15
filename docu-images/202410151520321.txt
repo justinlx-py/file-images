@@ -1,0 +1,7 @@
+-XX:CMSInitiatingOccupancyFraction=70 和-XX:+UseCMSInitiatingOccupancyOnly
+
+
+现在3个方案：
+1.服务器建议增加内存到48G，目前而言服务器内存使用都是正常的(保持jvm的使用)，现在138服务器部署的tomcat 5个(每个4-5G)，使用率就超标了，如果业务稍微增加就容易服务宕机(oom)或者服务假死
+2.尝试增加参数加快jvm的内存回收, 但是不一定有效，因为一旦遇到业务高峰期，可能jvm 会频繁gc，影响性能
+3.保持现状，目前而言jvm使用内存是合理的，可以继续观察内存的变化，注意swap的使用即可
